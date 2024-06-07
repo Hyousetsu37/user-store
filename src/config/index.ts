@@ -1,3 +1,5 @@
+export * from "./validators";
+
 export { JwtAdapter } from "./plugins/jsonwebtoken.adapter";
 
 export * from "./envs";

@@ -51,7 +51,7 @@ export class AuthService {
       if (!passwordMatch) throw CustomError.badRequest("Incorrect Credentials");
       const { password, ...newUserEntity } =
         UserEntity.fromObject(userInformation);
-      const token = await JwtAdapter.generateToken({ id: userInformation.id });
+      const token = await JwtAdapter.generateToken({ id: newUserEntity.id });
       if (!token) throw CustomError.internalServer("Error while creating JWT");
       return { user: newUserEntity, token };
     } catch (error) {
